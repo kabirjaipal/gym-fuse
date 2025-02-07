@@ -1,0 +1,92 @@
+<!-- Push/Pull Workout Details Page -->
+<section id="push-pull-workout" class="py-5">
+  <div class="container">
+    <!-- Title and Image Section -->
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img
+          src="https://picsum.photos/800/450?random=1"
+          class="img-fluid rounded shadow-lg"
+          alt="<%= workout.name %>"
+          loading="lazy"
+        />
+      </div>
+      <div class="col-md-6">
+        <h2 class="fw-bold text-primary mb-3"><%= workout.name %></h2>
+        <p class="lead mb-4"><%= workout.short_description %></p>
+        <p><strong>Difficulty Level:</strong> <%= workout.difficulty %></p>
+        <p><strong>Duration:</strong> <%= workout.duration %></p>
+        <p><strong>Frequency:</strong> <%= workout.frequency %></p>
+      </div>
+    </div>
+
+    <!-- Workout Details Section -->
+    <div class="row mt-5">
+      <div class="col-md-8">
+        <h3 class="fw-bold text-primary">Workout Description</h3>
+        <p><%- workout.long_description %></p>
+
+        <!-- Benefits Section -->
+        <h3 class="fw-bold text-primary mt-4">Benefits</h3>
+        <ul class="list-unstyled">
+          <% workout.benefits.forEach(benefit => { %>
+          <li>
+            <i class="bi bi-check-circle text-success"></i> <%= benefit %>
+          </li>
+          <% }); %>
+        </ul>
+
+        <!-- Workout Plan Section -->
+        <h3 class="fw-bold text-primary mt-4">Workout Plan</h3>
+        <p>Here’s an example of a <%= workout.name %> routine to follow:</p>
+        <div class="row">
+          <% workout.workout_plan.forEach(plan => { %>
+          <div class="col-md-6">
+            <h5 class="text-primary"><%= plan.title %></h5>
+            <ul>
+              <% plan.exercises.forEach(exercise => { %>
+              <li>
+                <strong><%= exercise.name %></strong> - <%= exercise.sets %>
+              </li>
+              <% }); %>
+            </ul>
+          </div>
+          <% }); %>
+        </div>
+
+        <!-- Tips Section -->
+        <h3 class="fw-bold text-primary">Tips for Success</h3>
+        <ul class="list-unstyled">
+          <% workout.tips.forEach(tip => { %>
+          <li>
+            <i class="bi bi-lightbulb text-warning"></i> <%= tip.content %>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Additional Resources / PDF Download / Video -->
+        <h3 class="fw-bold text-primary">Additional Resources</h3>
+        <div class="list-group mb-4">
+          <% workout.additional_resources.forEach(resource => { %>
+          <a
+            href="<%= resource.url %>"
+            class="list-group-item list-group-item-action"
+          >
+            <i class="<%= resource.icon %>"></i>
+            <strong><%= resource.title %></strong>
+          </a>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-lg btn-outline-primary">
+        Start Your <%= workout.name %> Today
+      </a>
+    </div>
+  </div>
+</section>

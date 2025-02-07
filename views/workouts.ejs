@@ -1,0 +1,65 @@
+<!-- Workouts Page -->
+<section id="workouts-page" class="py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4 text-primary">All Workout Plans</h2>
+
+    <!-- Search Bar -->
+    <div class="mb-4">
+      <div class="input-group">
+        <input
+          type="text"
+          id="search-workouts"
+          class="form-control border-primary rounded-start"
+          placeholder="Search Workouts..."
+          oninput="filterWorkouts()"
+        />
+        <button class="btn btn-primary rounded-end" type="button">
+          <i class="bi bi-search"></i>
+          <!-- Bootstrap Icons search icon -->
+        </button>
+      </div>
+    </div>
+
+    <!-- Workout Cards -->
+    <div class="row row-cols-2 row-cols-md-4 g-4" id="workouts-list">
+      <% workouts.forEach(workout => { %>
+      <div class="col workout-card">
+        <div class="border-primary card h-100 shadow-lg">
+          <img
+            src="https://picsum.photos/350/200?random=<%= workout.id %>"
+            class="card-img-top rounded"
+            alt="<%= workout.name %>"
+            loading="lazy"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-primary"><%= workout.name %></h5>
+            <p class="card-text">
+              <%= workout.short_description.substring(0, 100) + "..." %>
+            </p>
+            <a href="/workouts/<%= workout.id %>" class="btn btn-primary w-100"
+              >Learn More</a
+            >
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Filter workouts based on search input
+  function filterWorkouts() {
+    const query = document
+      .getElementById("search-workouts")
+      .value.toLowerCase();
+    const workouts = document.querySelectorAll(".workout-card");
+
+    workouts.forEach((workout) => {
+      const title = workout
+        .querySelector(".card-title")
+        .textContent.toLowerCase();
+      workout.style.display = title.includes(query) ? "" : "none";
+    });
+  }
+</script>

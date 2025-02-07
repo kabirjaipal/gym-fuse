@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model m_diet {
+  id          Int                 @id @default(autoincrement())
+  name        String
+  description Json
+  image       String
+  badge       String
+  precautions Json
+  benefits    t_diet_benefits[]   @relation("t_diet_benefits")
+  faq         t_diet_faq[]        @relation("t_diet_faq")
+  meal_plans  t_diet_meal_plans[] @relation("t_diet_meal_plans")
+}
+
+model t_diet_benefits {
+  id      Int    @id @default(autoincrement())
+  icon    String
+  title   String
+  detail  String
+  diet_id Int
+  diet    m_diet @relation("t_diet_benefits", fields: [diet_id], references: [id])
+
+  @@index([diet_id], map: "t_diet_benefits_diet_id_fkey")
+}
+
+model t_diet_meal_plans {
+  id       Int    @id @default(autoincrement())
+  meal     String
+  items    String
+  calories Int
+  time     String
+  diet_id  Int
+  diet     m_diet @relation("t_diet_meal_plans", fields: [diet_id], references: [id])
+
+  @@index([diet_id], map: "t_diet_meal_plans_diet_id_fkey")
+}
+
+model t_diet_faq {
+  id       Int    @id @default(autoincrement())
+  diet_id  Int
+  question String
+  answer   String
+  m_diet   m_diet @relation("t_diet_faq", fields: [diet_id], references: [id])
+
+  @@index([diet_id], map: "t_diet_faq_diet_id_fkey")
+}
+
+model m_gym {
+  id          Int    @id @default(autoincrement())
+  name        String
+  image       String
+  description Json
+  address     String
+  images      Json
+}
+
+model m_workout {
+  id                   Int                     @id @default(autoincrement())
+  name                 String
+  difficulty           String
+  duration             String
+  frequency            String
+  short_description    Json
+  long_description     Json
+  benefits             Json
+  additional_resources t_additional_resource[]
+  tips                 t_tip[]
+  workout_plan         t_workout_plan[]
+}
+
+model t_workout_plan {
+  id         Int          @id @default(autoincrement())
+  workout_id Int
+  title      String
+  exercises  t_exercise[]
+  m_workout  m_workout    @relation(fields: [workout_id], references: [id])
+
+  @@index([workout_id], map: "t_workout_plan_workout_id_fkey")
+}
+
+model t_exercise {
+  id              Int            @id @default(autoincrement())
+  workout_plan_id Int
+  name            String
+  sets            String
+  t_workout_plan  t_workout_plan @relation(fields: [workout_plan_id], references: [id])
+
+  @@index([workout_plan_id], map: "t_exercise_workout_plan_id_fkey")
+}
+
+model t_tip {
+  id         Int       @id @default(autoincrement())
+  workout_id Int
+  content    String
+  m_workout  m_workout @relation(fields: [workout_id], references: [id])
+
+  @@index([workout_id], map: "t_tip_workout_id_fkey")
+}
+
+model t_additional_resource {
+  id         Int       @id @default(autoincrement())
+  workout_id Int
+  title      String
+  icon       String
+  url        String
+  m_workout  m_workout @relation(fields: [workout_id], references: [id])
+
+  @@index([workout_id], map: "t_additional_resource_workout_id_fkey")
+}

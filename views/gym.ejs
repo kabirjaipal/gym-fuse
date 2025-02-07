@@ -1,0 +1,165 @@
+<!-- Dynamic Gym Page Content -->
+<section id="gym-page" class="py-5">
+  <div class="container">
+    <!-- Gym Name and Description -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary"><%= gym.name %></h2>
+      <p class="lead"><%= gym.description %></p>
+    </div>
+
+    <!-- Gym Image Slider (Carousel) -->
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <div
+          id="gymImageCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <% gym.images.forEach((image, index) => { %>
+            <button
+              type="button"
+              data-bs-target="#gymImageCarousel"
+              data-bs-slide-to="<%= index %>"
+              aria-current="<%= index === 0 ? 'true' : 'false' %>"
+              aria-label="Slide <%= index %>"
+              class="<%= index === 0 ? 'active' : '' %>"
+            ></button>
+            <% }); %>
+          </div>
+
+          <div class="carousel-inner">
+            <% gym.images.forEach((image, index) => { %>
+            <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+              <img
+                src="<%= image %>"
+                class="d-block w-100 rounded"
+                style="object-fit: cover; height: 450px"
+                loading="lazy"
+              />
+            </div>
+            <% }); %>
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#gymImageCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#gymImageCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gym Location (Google Maps Preview) -->
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <div class="card shadow-lg border-0 rounded-3">
+          <iframe
+            class="card-img-top rounded-top"
+            src="https://maps.google.com/maps?q=<%= encodeURIComponent(gym.name + ' ' + gym.address) %>&hl=en&z=14&output=embed"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          >
+          </iframe>
+          <div class="card-body">
+            <h5 class="card-title text-primary">Our Location</h5>
+            <p class="card-text">
+              Located in the heart of Kamla Nehru Nagar, Jodhpur, All Tech
+              Fitness offers modern facilities for all your fitness needs. You
+              can easily find us at the address below:
+            </p>
+            <p class="fw-bold"><%= gym.address %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gym Additional Information -->
+    <div class="row">
+      <!-- Gym Services -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg rounded-3">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Services We Offer</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Personal Training (One-on-one sessions)
+              </li>
+              <li class="list-group-item">
+                Group Fitness Classes (Yoga, Zumba, etc.)
+              </li>
+              <li class="list-group-item">
+                Yoga &amp; Pilates for Flexibility
+              </li>
+              <li class="list-group-item">
+                Nutrition Plans &amp; Consultations
+              </li>
+              <li class="list-group-item">24/7 Gym Access for Members</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gym Pricing -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg rounded-3">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Membership Pricing</h5>
+            <p class="card-text">
+              Choose a membership plan that suits your fitness goals. Here are
+              the options available:
+            </p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Monthly Plan - $40/month</li>
+              <li class="list-group-item">Quarterly Plan - $100/3 months</li>
+              <li class="list-group-item">Yearly Plan - $350/year</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gym Contact Information -->
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <div class="card shadow-lg rounded-3">
+          <div class="card-body text-center">
+            <h5 class="card-title text-primary">Get in Touch</h5>
+            <p class="card-text">
+              We’re here to help! If you have any questions or would like more
+              information about our gym, feel free to contact us.
+            </p>
+            <p class="text-muted">📞 Phone: +91 123 456 7890</p>
+            <p class="text-muted">
+              📧 Email:
+              <a href="mailto:info@alltechfitness.com"
+                >info@alltechfitness.com</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- "Request a Tour" Button -->
+    <div class="mt-4 text-center">
+      <a href="/contact-us" class="btn btn-primary btn-lg">Request a Tour</a>
+    </div>
+  </div>
+</section>

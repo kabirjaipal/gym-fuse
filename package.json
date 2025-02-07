@@ -1,0 +1,52 @@
+{
+  "name": "gymfuse",
+  "description": "GymFuse - A complete fitness and gym locator platform with workout plans, diet recommendations, and Google Maps integration.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:generate": "npx prisma generate",
+    "prisma:studio": "npx prisma studio"
+  },
+  "keywords": [
+    "gym",
+    "fitness",
+    "workouts",
+    "exercises",
+    "diet",
+    "health",
+    "gym locator",
+    "Google Maps API",
+    "Node.js",
+    "Express.js",
+    "Prisma",
+    "SQLite",
+    "EJS",
+    "Bootstrap",
+    "GymFuse"
+  ],
+  "author": "Kabir Jaipal",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kabirjaipal/gymfuse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kabirjaipal/gymfuse/issues"
+  },
+  "homepage": "https://github.com/kabirjaipal/gymfuse#readme",
+  "dependencies": {
+    "@prisma/client": "^6.3.1",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "prisma": "^6.3.1"
+  }
+}

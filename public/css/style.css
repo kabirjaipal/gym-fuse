@@ -1,0 +1,84 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap");
+
+/* General Body Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Section (Intro Section) */
+.hero-section {
+  background-image: url("/assets/images/hero-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0;
+  position: relative;
+  z-index: 1;
+  height: 50vh;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(var(--bs-dark-rgb), 0.5);
+  z-index: -1;
+  backdrop-filter: blur(10px);
+}
+
+/* Glowing Text */
+.glowing-text {
+  font-size: 3rem; /* Larger font for a more prominent effect */
+  font-weight: 600;
+  text-shadow: 0 0 10px var(--bs-primary), 0 0 15px var(--bs-secondary),
+    0 0 20px rgba(255, 255, 255, 0.4);
+  transition: text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for hover */
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.glowing-text:hover {
+  text-shadow: 0 0 20px var(--bs-primary), 0 0 30px var(--bs-secondary),
+    0 0 40px rgba(255, 255, 255, 0.6); /* Stronger glow on hover */
+  transform: scale(1.01); /* Slight zoom effect */
+}
+
+/* About Us */
+.team-member-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  border-color: var(--bs-primary);
+}
+
+.team-member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 0 25px var(--bs-primary);
+}
+
+.social-links a {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  color: var(--bs-light);
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--bs-primary);
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.team-member-card:hover .card-title {
+  color: var(--bs-primary);
+  text-shadow: 0 0 10px var(--bs-primary), 0 0 20px var(--bs-secondary);
+}

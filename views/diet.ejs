@@ -1,0 +1,129 @@
+<!-- Diet Details Section -->
+<section id="diet-details" class="py-5">
+  <div class="container">
+    <!-- Title and Description -->
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img
+          src="https://picsum.photos/500/300?random=1"
+          alt="Diet Image"
+          class="img-fluid rounded shadow"
+        />
+      </div>
+      <div class="col-md-6">
+        <h1 class="fw-bold text-primary"><%= diet.name %></h1>
+        <span class="badge bg-primary text-uppercase mb-3"
+          ><%= diet.badge %></span
+        >
+        <p class="lead"><%= diet.description %></p>
+        <ul class="list-unstyled text-success fw-bold">
+          <% diet.benefits.forEach(benefit => { %>
+          <li><i class="bi bi-check-circle"></i> <%= benefit.title %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h3 class="fw-bold text-primary">Benefits</h3>
+        <p class="text-muted">
+          The <%= diet.name %> offers a range of health benefits that can
+          positively impact your well-being:
+        </p>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <% diet.benefits.forEach(benefit => { %>
+          <div class="col">
+            <div
+              class="border border-primary card d-flex flex-column h-100 p-3 rounded shadow-sm"
+            >
+              <div class="card-body d-flex flex-column flex-grow-1">
+                <h5 class="card-title text-primary">
+                  <i class="<%= benefit.icon %>"></i> <%= benefit.title %>
+                </h5>
+                <p class="card-text text-muted"><%= benefit.detail %></p>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calorie and Meal Plan -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h3 class="fw-bold text-primary">Calorie and Meal Plan</h3>
+        <table class="table table-bordered table-hover text-center mt-3">
+          <thead class="table-active">
+            <tr>
+              <th>Meal</th>
+              <th>Food Items</th>
+              <th>Calories</th>
+              <th>Recommended Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% diet.meal_plans.forEach(meal => { %>
+            <tr>
+              <td><%= meal.meal %></td>
+              <td><%= meal.items %></td>
+              <td><%= meal.calories %></td>
+              <td><%= meal.time %></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Precautions Section -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h3 class="fw-bold text-danger">Precautions</h3>
+        <ul class="list-group list-group-flush">
+          <% diet.precautions.forEach(precaution => { %>
+          <li class="list-group-item text-muted"><%= precaution %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h3 class="fw-bold text-primary">Frequently Asked Questions</h3>
+        <div class="accordion mt-3" id="faqAccordion">
+          <% diet.faq.forEach((faq, index) => { %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faq-<%= index %>">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-<%= index %>"
+                aria-expanded="false"
+              >
+                <%= faq.question %>
+              </button>
+            </h2>
+            <div id="collapse-<%= index %>" class="accordion-collapse collapse">
+              <div class="accordion-body"><%= faq.answer %></div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call-to-Action -->
+    <div class="row mt-5 text-center">
+      <div class="col">
+        <button class="btn shadow-lg btn-outline-primary btn-lg">
+          Enjoy Your <%= diet.name %> Diet Plan
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
