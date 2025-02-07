@@ -42,3 +42,12 @@ export const getHome = async (req, res) => {
 export const getAboutUS = async (req, res) => {
   res.render("about-us", { title: "About Us" });
 };
+
+/**
+ *
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
+export const getPing = async (req, res) => {
+  res.json({ message: "pong" });
+};
