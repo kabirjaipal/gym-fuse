@@ -21,14 +21,14 @@
     <div class="row row-cols-2 row-cols-md-4 g-4">
       <% workouts.forEach(workout => { %>
       <div class="col workout-card">
-        <div class="border-primary card h-100 shadow-lg">
+        <div class="border card h-100 shadow-lg">
           <img
-            src="https://picsum.photos/350/200?random=<%= workout.id %>"
+            src="images/workouts/<%= workout.image %>"
             class="card-img-top rounded"
             alt="<%= workout.name %>"
             loading="lazy"
           />
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title text-primary"><%= workout.name %></h5>
             <p class="card-text">
               <%= workout.short_description.substring(0, 100) %>...
@@ -54,14 +54,14 @@
     <div class="row row-cols-2 row-cols-md-4 g-4">
       <% diets.forEach(diet => { %>
       <div class="col diet-card">
-        <div class="border-primary card h-100 shadow-lg">
+        <div class="border card h-100 shadow-lg">
           <img
             src="https://picsum.photos/350/200?random=<%= diet.id %>"
             class="card-img-top rounded"
             alt="<%= diet.name %>"
             loading="lazy"
           />
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title text-primary"><%= diet.name %></h5>
             <p class="card-text">
               <%= diet.description.substring(0, 100) %>...
@@ -90,7 +90,7 @@
     <div class="row row-cols-1 row-cols-md-4 g-4">
       <% gyms.forEach(gym => { %>
       <div class="col gym-card">
-        <div class="border-primary card h-100 shadow-lg">
+        <div class="border card h-100 shadow-lg">
           <img
             src="<%= gym.image %>"
             class="card-img-top rounded"

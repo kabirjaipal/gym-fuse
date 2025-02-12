@@ -64,6 +64,7 @@ model m_gym {
 model m_workout {
   id                   Int                     @id @default(autoincrement())
   name                 String
+  image                String                  @default("")
   difficulty           String
   duration             String
   frequency            String
