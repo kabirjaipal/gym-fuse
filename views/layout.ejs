@@ -23,11 +23,18 @@
 
   <body>
     <!-- Navbar -->
-    <nav id="navbar" class="navbar navbar-expand-lg">
+    <nav
+      class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top shadow-sm"
+    >
       <div class="container">
-        <a class="navbar-brand" href="/">GymFuse</a>
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <span class="fw-bold">GymFuse</span>
+        </a>
+
+        <!-- Toggler -->
         <button
-          class="border-0 navbar-toggler shadow-none collapsed"
+          class="navbar-toggler border-0 shadow-none"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -37,18 +44,28 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Nav Items -->
         <div
           class="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
-          <ul class="navbar-nav">
+          <ul class="navbar-nav gap-3">
             <li class="nav-item">
-              <a class="nav-link" href="/workouts">Workouts</a>
+              <a class="nav-link fw-medium px-3 py-2" href="/workouts"
+                >Workouts</a
+              >
             </li>
-            <li class="nav-item"><a class="nav-link" href="/diets">Diet</a></li>
-            <li class="nav-item"><a class="nav-link" href="/gyms">Gyms</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="/about-us">About Us</a>
+              <a class="nav-link fw-medium px-3 py-2" href="/diets">Diet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium px-3 py-2" href="/gyms">Gyms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium px-3 py-2" href="/about-us"
+                >About Us</a
+              >
             </li>
           </ul>
         </div>
@@ -59,12 +76,28 @@
       <%- body %>
     </main>
     <!-- Footer -->
-    <footer id="footer" class="text-center py-4">
+    <footer id="footer" class="border-top text-white py-4">
       <div class="container text-center">
-        <p class="mb-2">
-          "Push yourself because no one else is going to do it for you."
-        </p>
-        <p>&copy; 2024 GymFuse</p>
+        <div class="row">
+          <!-- Quote Section -->
+          <div class="col-12">
+            <figure>
+              <blockquote class="blockquote text-light fs-5">
+                "Push yourself because no one else is going to do it for you."
+              </blockquote>
+              <figcaption class="blockquote-footer text-white-50">
+                GymFuse Motivation
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- Copyright -->
+          <div class="col-12">
+            <p class="text-white-50 mb-0">
+              © 2025 GymFuse - All Rights Reserved
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
 

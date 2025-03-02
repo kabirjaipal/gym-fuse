@@ -8,6 +8,55 @@ body {
   padding: 0;
 }
 
+.navbar {
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--bs-primary) !important;
+}
+
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  color: var(--bs-primary) !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--bs-primary);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .navbar-nav {
+    padding: 1rem;
+  }
+  .nav-link {
+    padding: 0.5rem 1rem !important;
+  }
+}
+
 /* Hero Section (Intro Section) */
 .hero-section {
   background-image: url("/assets/images/hero-banner.jpg");

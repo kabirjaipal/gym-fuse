@@ -34,7 +34,5 @@ export const getGym = async (req, res) => {
     return res.status(404).json({ error: "Gym not found" });
   }
 
-  console.log(gym);
-
   res.render("gym", { title: gym.name, gym });
 };

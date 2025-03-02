@@ -85,29 +85,21 @@
 <!-- Gym Locator Section -->
 <section id="locator" class="mb-4">
   <div class="container text-center">
-    <h2 class="fw-bold mb-4 text-primary">Find Nearby Gyms</h2>
-    <p class="lead mb-4">
-      Easily find gyms near you by browsing the list below.
-    </p>
+    <h2 class="fw-bold mb-4 text-primary">Gyms</h2>
     <div class="row row-cols-1 row-cols-md-4 g-4">
       <% gyms.forEach(gym => { %>
       <div class="col gym-card">
-        <div class="border card h-100 shadow-lg">
-          <img
-            src="<%= gym.image %>"
-            class="card-img-top rounded"
-            alt="<%= gym.name %>"
-            style="height: 200px; object-fit: cover"
-          />
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-primary"><%= gym.name %></h5>
-            <p class="card-text"><%= gym.description.substring(0, 100) %></p>
-            <p class="card-text">
-              <strong>Address:</strong> <%= gym.address %>
+        <div class="card h-100 border shadow-sm transition-hover">
+          <div class="card-body d-flex flex-column p-4">
+            <h5 class="card-title text-primary fw-bold mb-3">
+              <%= gym.name %>
+            </h5>
+            <p class="card-text text-muted flex-grow-1">
+              <%= gym.description.substring(0, 100) %>...
             </p>
-            <a href="/gyms/<%= gym.id %>" class="btn btn-primary mt-auto"
-              >Learn More</a
-            >
+            <a href="/gyms/<%= gym.id %>" class="btn btn-primary mt-auto w-100">
+              Learn More
+            </a>
           </div>
         </div>
       </div>

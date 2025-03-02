@@ -3,28 +3,11 @@
   <div class="container text-center">
     <h2 class="fw-bold mb-4 text-primary">All Personalized Diet Plans</h2>
 
-    <!-- Search Bar -->
-    <div class="mb-4">
-      <div class="input-group">
-        <input
-          type="text"
-          id="search-diets"
-          class="form-control border-primary rounded-start"
-          placeholder="Search Diet Plans..."
-          oninput="filterDiets()"
-        />
-        <button class="btn btn-primary rounded-end" type="button">
-          <i class="bi bi-search"></i>
-          <!-- Bootstrap Icons search icon -->
-        </button>
-      </div>
-    </div>
-
     <!-- Full Diet Cards -->
     <div class="row row-cols-2 row-cols-md-4 g-4" id="diets-list">
       <% diets.forEach(diet => { %>
       <div class="col diet-card" data-name="<%= diet.name.toLowerCase() %>">
-        <div class="border-primary card h-100 shadow-lg">
+        <div class="border card h-100 shadow-lg">
           <img
             src="images/diets/<%= diet.image %>"
             class="card-img-top rounded"
@@ -38,7 +21,9 @@
               <%= diet.description.length > 100 ? diet.description.substring(0,
               100) + "..." : diet.description %>
             </p>
-            <a href="/diets/<%= diet.id %>" class="btn btn-primary w-100"
+            <a
+              href="/diets/<%= diet.id %>"
+              class="btn btn-primary mt-auto w-100"
               >Learn More</a
             >
           </div>
@@ -48,19 +33,3 @@
     </div>
   </div>
 </section>
-
-<!-- JavaScript for Filtering Diet Plans -->
-<script>
-  // Function to filter diet cards based on the search input
-  function filterDiets() {
-    const searchInput = document
-      .getElementById("search-diets")
-      .value.toLowerCase();
-    const dietCards = document.querySelectorAll(".diet-card");
-
-    dietCards.forEach((card) => {
-      const cardName = card.getAttribute("data-name");
-      card.style.display = cardName.includes(searchInput) ? "block" : "none";
-    });
-  }
-</script>
