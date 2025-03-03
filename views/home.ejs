@@ -1,16 +1,16 @@
 <!-- Hero Section -->
-<section class="hero-section text-center text-white top-0 w-100">
-  <div
-    class="align-items-center d-flex flex-column h-100 justify-content-center mt-5 mt-md-0 w-100"
-  >
-    <h1 class="display-4 fw-bold glowing-text fs-1 fs-md-3">
-      Achieve Your Fitness Goals with GymFuse
-    </h1>
-    <p class="lead fs-5 fs-md-4">
-      Get the best workout plans, diet recommendations, and find gyms near you
-      with ease!
-    </p>
-    <a href="#workouts" class="btn btn-lg btn-outline-primary">Get Started</a>
+<section class="hero">
+  <div class="container">
+    <div class="hero-content text-center">
+      <h1>Find Your Perfect Gym & Fitness Plan</h1>
+      <p>
+        Join GymFuse for personalized workout & diet plans and get gyms
+        effortlessly.
+      </p>
+      <a href="/workouts" class="btn btn-outline-primary">Explore Workouts</a>
+      <a href="/gyms" class="btn btn-outline-primary ms-3">Explore Gyms</a>
+      <a href="/diets" class="btn btn-outline-primary ms-3">Explore Diets</a>
+    </div>
   </div>
 </section>
 
@@ -21,7 +21,7 @@
     <div class="row row-cols-2 row-cols-md-4 g-4">
       <% workouts.forEach(workout => { %>
       <div class="col workout-card">
-        <div class="border card h-100 shadow-lg">
+        <div class="border bg-transparent card h-100 shadow-lg">
           <img
             src="images/workouts/<%= workout.image %>"
             class="card-img-top rounded"
@@ -55,7 +55,7 @@
     <div class="row row-cols-2 row-cols-md-4 g-4">
       <% diets.forEach(diet => { %>
       <div class="col diet-card">
-        <div class="border card h-100 shadow-lg">
+        <div class="border bg-transparent card h-100 shadow-lg">
           <img
             src="images/diets/<%= diet.image %>"
             class="card-img-top rounded"
@@ -82,14 +82,16 @@
   </div>
 </section>
 
-<!-- Gym Locator Section -->
-<section id="locator" class="mb-4">
+<!-- Gyms Section -->
+<section id="gyms" class="mb-4">
   <div class="container text-center">
     <h2 class="fw-bold mb-4 text-primary">Gyms</h2>
     <div class="row row-cols-1 row-cols-md-4 g-4">
       <% gyms.forEach(gym => { %>
       <div class="col gym-card">
-        <div class="card h-100 border shadow-sm transition-hover">
+        <div
+          class="card bg-transparent h-100 border shadow-sm transition-hover"
+        >
           <div class="card-body d-flex flex-column p-4">
             <h5 class="card-title text-primary fw-bold mb-3">
               <%= gym.name %>
