@@ -1,3 +1,4 @@
+import developers from "../lib/developers.js";
 import { prisma } from "../lib/prisma.js";
 
 /**
@@ -40,7 +41,7 @@ export const getHome = async (req, res) => {
  * @param {import("express").Response} res
  */
 export const getAboutUS = async (req, res) => {
-  res.render("about-us", { title: "About Us" });
+  res.render("about-us", { title: "About Us", developers });
 };
 
 /**

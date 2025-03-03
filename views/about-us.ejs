@@ -1,144 +1,98 @@
 <!-- About Us Section -->
-<section id="about-us" class="py-1">
+<section id="about-us" class="py-5">
   <div class="container">
     <!-- Project Info Section -->
-    <div class="mt-5 text-center">
-      <h3 class="fw-bold mb-2 text-primary">Our Project - GymFuse</h3>
-      <p class="lead">
-        GymFuse is a modern web application that brings together workout
-        routines, personalized diet plans, and gym locators all in one platform.
-        Designed with user experience in mind, GymFuse allows fitness
-        enthusiasts to easily plan their workouts, follow customized diet plans,
-        and even find nearby gyms based on their location.
-        <br /><br />
-        Our platform is built using the latest web technologies to provide a
-        responsive, fast, and intuitive experience for users. Whether you're a
-        beginner or an advanced gym-goer, GymFuse helps you achieve your fitness
-        goals efficiently.
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary">Our Project - GymFuse</h2>
+      <p class="lead text-muted">
+        GymFuse is an all-in-one fitness platform designed to help individuals
+        reach their health goals. Whether you’re new to fitness or a seasoned
+        athlete, GymFuse offers everything you need to stay on track. Our
+        platform is powered by the latest technology to deliver an intuitive,
+        fast, and reliable experience.
       </p>
     </div>
 
-    <!-- Developers' Section -->
+    <!-- Our Mission -->
     <div class="text-center mb-5">
-      <h2 class="fw-bold mb-2 text-primary">Meet Our Developers</h2>
-      <p class="lead">
-        Our talented team of developers is dedicated to bringing you the best
-        fitness platform. Here's a little about the people behind GymFuse:
+      <h3 class="fw-bold text-secondary">Our Mission</h3>
+      <p class="lead text-muted">
+        At GymFuse, our mission is to make fitness accessible and convenient for
+        everyone. We believe that staying fit shouldn’t be complicated, so we
+        provide a simple yet powerful platform to track workouts, follow
+        personalized diet plans, and find nearby gyms—all in one place.
+      </p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row text-center mb-5">
+      <div class="col-md-4">
+        <i class="bi bi-bar-chart-line fs-1 text-primary"></i>
+        <h5 class="fw-bold mt-3">Smart Workout Plans</h5>
+        <p class="text-muted">
+          Get customized workout routines based on your fitness level and goals.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-egg-fried fs-1 text-primary"></i>
+        <h5 class="fw-bold mt-3">Personalized Diet Plans</h5>
+        <p class="text-muted">
+          Follow nutrition plans tailored to your body type and preferences.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-award fs-1 text-primary"></i>
+        <h5 class="fw-bold mt-3">Top-Rated Gyms</h5>
+        <p class="text-muted">
+          Browse and explore the best gyms with top-notch facilities and expert
+          trainers to elevate your fitness journey.
+        </p>
+      </div>
+    </div>
+
+    <!-- Developers' Section -->
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-primary">Meet Our Developers</h2>
+      <p class="lead text-muted">
+        The passionate team behind GymFuse, committed to delivering a seamless
+        fitness experience.
       </p>
     </div>
 
     <!-- Developers Cards -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <!-- Developer 1 -->
+      <% developers.forEach(dev => { %>
       <div class="col">
-        <div class="card team-member-card rounded-3">
-          <div class="d-flex justify-content-center align-items-center mt-4">
+        <div class="card shadow-sm text-center h-100">
+          <div class="position-relative mt-4">
             <img
-              src="https://picsum.photos/200/300?random=1"
-              class="card-img-top rounded-circle profile-image"
-              alt="Developer 1"
+              src="<%= dev.image %>"
+              class="rounded-circle border border-3 border-primary shadow"
+              width="120"
+              height="120"
+              alt="<%= dev.name %>"
             />
           </div>
-          <div class="card-body text-center">
-            <h5 class="card-title">Kabir Jaipal</h5>
-            <p class="card-text">Full Stack Developer</p>
-            <div class="social-links">
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-facebook"
-                aria-label="Facebook"
-              ></a>
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-twitter"
-                aria-label="Twitter"
-              ></a>
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-linkedin"
-                aria-label="LinkedIn"
-              ></a>
-            </div>
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><%= dev.name %></h5>
+            <p class="card-text text-muted"><%= dev.role %></p>
+            <p class="text-muted small"><%= dev.description %></p>
+          </div>
+          <div class="pb-4">
+            <% dev.socials.forEach(social => { %>
+            <a
+              href="<%= social.url %>"
+              class="<%= social.color %> mx-2"
+              aria-label="<%= social.platform %>"
+              target="_blank"
+            >
+              <i class="<%= social.icon %> fs-4"></i>
+            </a>
+            <% }) %>
           </div>
         </div>
       </div>
-
-      <!-- Developer 2 -->
-      <div class="col">
-        <div class="card team-member-card rounded-3">
-          <div class="d-flex justify-content-center align-items-center mt-4">
-            <img
-              src="https://picsum.photos/200/300?random=2"
-              class="card-img-top rounded-circle profile-image"
-              alt="Developer 2"
-            />
-          </div>
-          <div class="card-body text-center">
-            <h5 class="card-title">Manish Upadhay</h5>
-            <p class="card-text">Frontend Developer</p>
-            <div class="social-links">
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-facebook"
-                aria-label="Facebook"
-              ></a>
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-twitter"
-                aria-label="Twitter"
-              ></a>
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-linkedin"
-                aria-label="LinkedIn"
-              ></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Developer 3 -->
-      <div class="col">
-        <div class="card team-member-card rounded-3">
-          <div class="d-flex justify-content-center align-items-center mt-4">
-            <img
-              src="https://picsum.photos/200/300?random=3"
-              class="card-img-top rounded-circle profile-image"
-              alt="Developer 3"
-            />
-          </div>
-          <div class="card-body text-center">
-            <h5 class="card-title">Prakhar Bhatnagar</h5>
-            <p class="card-text">Frontend Developer</p>
-            <div class="social-links">
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-facebook"
-                aria-label="Facebook"
-              ></a>
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-twitter"
-                aria-label="Twitter"
-              ></a>
-              <a
-                href="#"
-                target="_blank"
-                class="bi bi-linkedin"
-                aria-label="LinkedIn"
-              ></a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <% }) %>
     </div>
   </div>
 </section>
