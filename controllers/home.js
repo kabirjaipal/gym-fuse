@@ -49,6 +49,15 @@ export const getAboutUS = async (req, res) => {
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
+export const getContactUS = async (req, res) => {
+  res.render("contact-us", { title: "Contact Us" });
+};
+
+/**
+ *
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
 export const getPing = async (req, res) => {
   res.json({ message: "pong" });
 };
