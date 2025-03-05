@@ -73,5 +73,5 @@ This project is licensed under the ISC License.
 ## Authors ✨
 
 - Kabir Jaipal
-- Manish Upadhay
+- Manish Upadhyay
 - Prakhar Bhatnagar
